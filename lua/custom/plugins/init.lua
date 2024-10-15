@@ -3,6 +3,10 @@
 --
 -- See the kickstart.nvim README for more information
 return {
+  -- Autoclosing Tag
+  { 'windwp/nvim-ts-autotag' },
+
+  -- LazyGit
   {
     'kdheepak/lazygit.nvim',
     lazy = true,
@@ -24,6 +28,26 @@ return {
     },
   },
 
+  -- Vim txmux navigation
+  {
+    'christoomey/vim-tmux-navigator',
+    cmd = {
+      'TmuxNavigateLeft',
+      'TmuxNavigateDown',
+      'TmuxNavigateUp',
+      'TmuxNavigateRight',
+      'TmuxNavigatePrevious',
+    },
+    keys = {
+      { '<C-h>', '<cmd><C-U>TmuxNavigateLeft<cr>' },
+      { '<C-j>', '<cmd><C-U>TmuxNavigateDown<cr>' },
+      { '<C-k>', '<cmd><C-U>TmuxNavigateUp<cr>' },
+      { '<C-l>', '<cmd><C-U>TmuxNavigateRight<cr>' },
+      { '<C-\\>', '<cmd><C-U>TmuxNavigatePrevious<cr>' },
+    },
+  },
+
+  -- custom keybindings
   vim.api.nvim_set_keymap('n', '<M-j>', '<C-w>+', { noremap = true, desc = 'Increase window height' }),
   vim.api.nvim_set_keymap('n', '<M-k>', '<C-w>-', { noremap = true, desc = 'Decrease window height' }),
   vim.api.nvim_set_keymap('n', '<M-h>', '<C-w><', { noremap = true, desc = 'Decrease window width' }),
